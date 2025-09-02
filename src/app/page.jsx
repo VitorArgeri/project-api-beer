@@ -1,49 +1,27 @@
-"use client"
 import React from 'react'
-import { useState } from 'react'
-import axios from 'axios'
+import LinkButton from '../Components/LinkButton/page'
+import Link from 'next/link'
 
-export default function Page() {
-  const [bebidas, setBebidas] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  const buscarBebidas = async () => {
-    setLoading(true)
-    try {
-      const response = await axios.get('https://api.sampleapis.com/beers/ale')
-      const data = response.data;
-      setBebidas(data)
-      console.table(data)
-    } catch (error) {
-      console.error('Erro ao buscar bebidas:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
-
+export default function page() {
   return (
-    <div className="min-h screen bg-blue-100 p-8 text-center">
-      <div className="mx-auto text-center mb-12">
-        <h1 className="text-center font-bold">Bebidas</h1>
-        <div className="text-center mt-10 mb-8">
-          <div className="mm-6">
-            <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={buscarBebidas} disabled={loading}>
-              {loading ? "Carregando..." : "Buscar Bebidas"}
-            </button>
-          </div>
+    <div className="flex justify-center items-center h-screen bg-gray-100 flex-col gap-4">
+      <div className="bg-white p-8 rounded-lg shadow-md text-center max-w-md h-120">
+        <div className="mb-6 flex justify-center items-center flex-col">
+          <img src="/Img/VitorArgeri-Img.jpg" alt="Foto do Vitor de Almeida Argeri" className="w-50 h-50 rounded-full mb-4"/>
+          <h1 className="text-2x1 font-bold text-gray-800">Vitor de Almeida Argeri</h1>
         </div>
+        <ul className="mt-6 space-y-2 text-left">
+          <li className="text-gray-700"><span className="font-semibold">Turma: </span>3ºD</li>
+          <li className="text-gray-700"><span className="font-semibold">Idade: </span>18 Anos</li>
+          <li className="text-gray-700"><span className="font-semibold">Local de Nascimento: </span>Valinhos, SP</li>
+        </ul>
+        <h2 className="flex text-center text-lg italic text-gray-600">
+          A grandeza de uma pessoa é medida pelo quão grande seu sonho é
+        </h2>
       </div>
-
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
-        {bebidas.map((bebida) => (
-          <div className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-center items-center h-60" key={bebida.id}>
-            <h3 className="font-bold text-lg text-gray-800">{bebida.name}</h3>
-            <p className="text-grey-600"><span className="font-bold">Preço</span>: {bebida.price}</p>
-            <img src={bebida.image} alt="Imagem da Bebida" className="w-32 h-32 object-cover mt-4" />
-          </div>
-        ))}
-      </div>
-
+      <LinkButton link="./Api-Info" text="API-Info"/>
+      <LinkButton link="./List" text="List"/>
+      <LinkButton link="./Details" text="Details"/>
     </div>
   )
 }

@@ -1,0 +1,17 @@
+.linkButton {
+    display: inline-block;
+    padding: 10px 0px;
+    width: 450px;
+    margin: 10px;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.linkButton:hover {
+    background-color: darkblue;
+}
