@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./api-info.module.css";
+import Link from "@/Components/LinkButton/page";
 
 export default function APIInfo() {
     return (
@@ -11,9 +12,9 @@ export default function APIInfo() {
                 </p>
                 <h2 className={styles.subtitle}>Recursos da API</h2>
                 <ul className={styles.featuresList}>
-                    <li>Busca por nome e preço</li>
-                    <li>Detalhes completos sobre cada cerveja</li>
-                    <li>Imagem de cada uma</li>
+                    <li className={styles.listItem}>Busca por nome e preço</li>
+                    <li className={styles.listItem}>Detalhes completos sobre cada cerveja</li>
+                    <li className={styles.listItem}>Imagem de cada uma</li>
                 </ul>
                 <h2 className={styles.subtitle}>Documentação</h2>
                 <p className={styles.description}>
